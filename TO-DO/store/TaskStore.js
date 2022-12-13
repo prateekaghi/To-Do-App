@@ -24,12 +24,16 @@ export const useTaskStore = defineStore("TaskStore", {
   },
   actions: {
     createTask(fields) {
-      let task = {};
+      let task = { completed: false };
       fields.forEach((e) => {
         task[e.name.trim(" ")] = e.value.value;
       });
       console.log(task);
       this.task.push(task);
+    },
+
+    toggleStatus(task) {
+      task.completed = !task.completed;
     },
   },
 });
