@@ -33,6 +33,11 @@
               >Create Tasks</NuxtLink
             >
           </li>
+          <li class="nav-item">
+            <NuxtLink to="/login" class="nav-link active" aria-current="page"
+              >Login</NuxtLink
+            >
+          </li>
         </ul>
       </div>
     </div>
