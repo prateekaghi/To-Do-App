@@ -8,7 +8,7 @@ const { tasks } = defineProps(["tasks"]);
     :class="task.completed ? 'border-success' : 'border-danger'"
     class="card"
   >
-    <div>{{ task.name }}</div>
+    <div>{{ task.tasks }}</div>
   </div>
 </template>
 

@@ -4,26 +4,32 @@ export const useTaskStore = defineStore("TaskStore", {
   state: () => ({
     task: [
       {
-        name: "Complete Project",
-        completed: true,
-        createdAt: "",
-        completedAt: "",
-        createdBy: "",
+        tasks: "Complete Project",
+        createdOn: "",
         assignedTo: "",
+        completed: true,
       },
       {
-        name: "Create portfolio",
-        completed: false,
-        createdAt: "",
-        completedAt: "",
-        createdBy: "",
+        tasks: "Create portfolio",
+        createdOn: "",
         assignedTo: "",
+        completed: false,
       },
     ],
   }),
   getters: {
     totalTask() {
       this.task.length;
+    },
+  },
+  actions: {
+    createTask(fields) {
+      let task = {};
+      fields.forEach((e) => {
+        task[e.name.trim(" ")] = e.value.value;
+      });
+      console.log(task);
+      this.task.push(task);
     },
   },
 });

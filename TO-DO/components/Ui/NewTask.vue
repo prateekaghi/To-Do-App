@@ -1,6 +1,9 @@
 <script setup>
 import { useUserStore } from "~/store/userStore";
+import { useTaskStore } from "~/store/TaskStore";
+const task = useTaskStore();
 const user = useUserStore();
+
 const date = new Date().toLocaleDateString("en-us", {
   weekday: "long",
   year: "numeric",
@@ -14,22 +17,26 @@ const select = (event, field) => {
   field.value.value = event.target.value;
 };
 const submitHandler = () => {
+  task.createTask(fields);
   console.log(fields);
 };
 console.log(user.user);
 const fields = [
   {
-    name: "Tasks",
+    label: "Tasks",
+    name: "tasks",
     type: "text",
-    value: ref("1"),
+    value: ref(""),
   },
   {
-    name: "Created On",
+    label: "Created On",
+    name: "createdOn",
     type: "text",
     value: ref(date),
   },
   {
-    name: "Assigned To",
+    label: "Assigned To",
+    name: "assignedTo",
     type: "select",
     options: user.user,
     value: ref(""),
@@ -49,14 +56,14 @@ const fields = [
           "
           class="form-select"
         >
-          <option selected>{{ field.name }}</option>
+          <option selected>{{ field.label }}</option>
           <option v-for="option in field.options" :value="option.value">
             {{ option.name }}
           </option>
         </select>
       </div>
       <div v-else>
-        <label for="task" class="form-label">{{ field.name }}</label>
+        <label for="task" class="form-label">{{ field.label }}</label>
         <input
           v-model="field.value.value"
           :type="field.type"

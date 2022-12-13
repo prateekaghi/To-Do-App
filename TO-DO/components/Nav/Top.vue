@@ -22,14 +22,15 @@
               >Home</NuxtLink
             >
           </li>
-          <li class="nav-item">
-            <NuxtLink to="/tasks" class="nav-link active" aria-current="page"
-              >Tasks</NuxtLink
-            >
-          </li>
+
           <li class="nav-item">
             <NuxtLink to="/users" class="nav-link active" aria-current="page"
               >Users</NuxtLink
+            >
+          </li>
+          <li class="nav-item">
+            <NuxtLink to="/tasks" class="nav-link active" aria-current="page"
+              >Create Tasks</NuxtLink
             >
           </li>
         </ul>
@@ -43,5 +44,13 @@
   margin-left: 10px;
   height: 30px;
   width: auto;
+}
+.nav-item {
+  min-width: 100px;
+  text-align: center;
+}
+.nav-item:hover {
+  background-color: aquamarine;
+  border-radius: 50px;
 }
 </style>
