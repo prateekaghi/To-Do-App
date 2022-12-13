@@ -1,11 +1,11 @@
-<script setup></script>
-
+<script setup>
+import { useTaskStore } from "~/store/TaskStore";
+const store = useTaskStore();
+const totalTasks = store.task;
+</script>
 <template>
-  <div>
-    <div class="task-container">
-      <UiNewTask></UiNewTask>
-      <UiTaskCard class="task-card"></UiTaskCard>
-    </div>
+  <div class="task-container">
+    <UiTaskCard :tasks="totalTasks" />
   </div>
 </template>
 
@@ -14,8 +14,5 @@
   width: 50vw;
   margin: auto;
   margin-top: 20px;
-}
-.task-card {
-  margin-top: 10px;
 }
 </style>
