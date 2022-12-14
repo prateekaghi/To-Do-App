@@ -11,6 +11,7 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.13",
     "@pinia/nuxt": "^0.4.6",
     "bootstrap": "^5.2.3"
   }
